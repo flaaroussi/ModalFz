@@ -1,10 +1,10 @@
 {
-  "name": "modal-fz",
+  "name": "ModalFz",
   "version": "1.0.0",
   "description": "Made with create-react-library",
   "author": "flaaroussi",
   "license": "MIT",
-  "repository": "flaaroussi/modal-fz",
+  "repository": "flaaroussi/ModalFz",
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "source": "src/index.js",
