@@ -1,10 +1,24 @@
-import React from 'react'
+import React, { useState }from 'react'
 
-import { ExampleComponent } from 'modal-fz'
-import 'modal-fz/dist/index.css'
+
+import 'ReactModalFz/dist/index.css'
+import { Modal } from '../../src';
 
 const App = () => {
-  return <ExampleComponent text="Create React Library Example 😄" />
+   const [isOpen, setIsOpen]  = useState(0);  
+  return (
+    <>
+    <button onClick={() => setIsOpen(isOpen ? 0 : 1)}>Click me!</button>
+    <Modal
+        isOpen={isOpen} 
+        onClose={setIsOpen} 
+        title="Add employee" 
+        width="600px"  
+        modalContent={<p>Modal content</p>} 
+        footerContent={<><button>ok</button><button onClick={() => setIsOpen(isOpen ? 0 : 1)}>close</button></>} 
+    />
+    </>
+  ) 
 }
 
 export default App
