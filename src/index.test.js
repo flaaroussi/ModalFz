@@ -1,7 +1,27 @@
-import { ExampleComponent } from '.'
+import { render } from 'react-dom'
+import { Modal } from '.'
 
-describe('ExampleComponent', () => {
-  it('is truthy', () => {
-    expect(ExampleComponent).toBeTruthy()
+describe('Modal', () => {
+  test('is truthy', () => {
+    render(
+      <Modal
+        isOpen={isOpen}
+        onClose={setIsOpen}
+        title='Add employee'
+        width='600px'
+        modalContent={<p>Modal content</p>}
+        footerContent={
+          <>
+            <button className='btn-modal'>ok</button>
+            <button
+              className='btn-modal'
+              onClick={() => setIsOpen(isOpen ? 0 : 1)}
+            >
+              close
+            </button>
+          </>
+        }
+      />
+    )
   })
 })

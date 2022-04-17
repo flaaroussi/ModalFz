@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import ReactDOM from 'react-dom'
 import styles from './styles.module.css'
 import { ReactComponent as CloseIcone } from './close.svg'
@@ -9,9 +9,23 @@ export const Modal = ({
   onClose,
   modalContent,
   footerContent,
-  isOpen,
-  openCloseModal
+  isOpen
 }) => {
+  // escape to close modal
+  const doCloseModal = (event) => {
+    if (event.keyCode === 27 && isOpen) {
+      onClose(isOpen ? 0 : 1)
+    }
+  }
+  //attaché event keyDown à la DOM à chaque ouverture du modal
+
+  useEffect(() => {
+    document.addEventListener('keydown', doCloseModal, false)
+    return () => {
+      document.removeEventListener('keydown', doCloseModal, false)
+    }
+  }, [isOpen])
+
   const modal = (
     <div className={styles.modal_overlay}>
       <section
