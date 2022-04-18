@@ -8,6 +8,8 @@ Run the following command:
 
 # Demo
 
+![Demo text](Demo_p14.png)
+
 # Installation
 
 Install ReactModalFz with npm:
@@ -23,25 +25,26 @@ import { Modal } from 'ReactModalFz'
 
 const App = () => {
 const [isOpen, setIsOpen] = useState(0)
-   return (
-         <Modal
-            isOpen={isOpen}
-            onClose={setIsOpen}
-            title='Modal title'
-            width='600px'
-            modalContent={<p>Modal content</p>}
-            footerContent={
-               <>
-                  <button className='btn-modal'>ok</button>
-                  <button className='btn-modal'
-                     onClick={() => setIsOpen(isOpen ? 0 : 1)} >
-                     close
-                  </button>
-               </>
-            }
-         />
-   )
+return (
+      <Modal
+         isOpen={isOpen}
+         onClose={setIsOpen}
+         title='Modal title'
+         width='600px'
+         modalContent={<p>Modal content</p>}
+         footerContent={
+            <>
+               <button className='btn-modal'>ok</button>
+               <button className='btn-modal'
+                  onClick={() => setIsOpen(isOpen ? 0 : 1)} >
+                  close
+               </button>
+            </>
+         }
+      />
+)
 }
 ```
+
 
 ````
