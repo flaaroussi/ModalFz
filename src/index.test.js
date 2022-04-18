@@ -1,24 +1,22 @@
-import { render } from 'react-dom'
+import React from 'react'
+import { render } from '@testing-library/react'
 import { Modal } from '.'
 
-describe('Modal', () => {
-  test('is truthy', () => {
+const onClose = () => {}
+
+describe('"When i set isOpen to true', () => {
+  test('is Then the Modal component should be displayed', () => {
     render(
       <Modal
-        isOpen={isOpen}
-        onClose={setIsOpen}
+        isOpen={1}
         title='Add employee'
         width='600px'
+        onClose={onClose}
         modalContent={<p>Modal content</p>}
         footerContent={
           <>
             <button className='btn-modal'>ok</button>
-            <button
-              className='btn-modal'
-              onClick={() => setIsOpen(isOpen ? 0 : 1)}
-            >
-              close
-            </button>
+            <button>close</button>
           </>
         }
       />

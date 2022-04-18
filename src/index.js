@@ -1,8 +1,22 @@
 import React, { useEffect } from 'react'
 import ReactDOM from 'react-dom'
+import PropTypes from 'prop-types'
+
 import styles from './styles.module.css'
 import { ReactComponent as CloseIcone } from './close.svg'
 
+/**
+ * @description Modal
+ *
+ * @param   {string}         props.title [title of message]
+ * @param   {width}          props.width [width of modal]
+ * @param   {onClose}        props.onClose [close modal]
+ * @param   {modalContent}   props.modalContent [body of message]
+ * @param   {footerContent}  props.footerContent [ footer of message]
+ * @param   {isOpen}         props.isOpen [etat of modal]
+ *
+ * @returns {Reactnode}  jsx injected in DOM
+ */
 export const Modal = ({
   title,
   width,
@@ -17,7 +31,9 @@ export const Modal = ({
       onClose(isOpen ? 0 : 1)
     }
   }
-  //attaché event keyDown à la DOM à chaque ouverture du modal
+  /**
+   * attache event keyDown à la DOM à chaque ouverture du modal
+   */
 
   useEffect(() => {
     document.addEventListener('keydown', doCloseModal, false)
@@ -26,12 +42,11 @@ export const Modal = ({
     }
   }, [isOpen])
 
+  const modalWidth = width || '400px'
+
   const modal = (
     <div className={styles.modal_overlay}>
-      <section
-        className={styles.modal}
-        style={{ width: width ? width : '400px' }}
-      >
+      <section className={styles.modal} style={{ width: modalWidth }}>
         <header className={styles.modal__header}>
           <h3>{title}</h3>
           <button
@@ -52,4 +67,17 @@ export const Modal = ({
     </div>
   )
   return isOpen ? ReactDOM.createPortal(modal, document.body) : null
+}
+
+/**
+ * Modal Proptypes
+ */
+
+Modal.propTypes = {
+  title: PropTypes.string.isRequired,
+  width: PropTypes.string,
+  onClose: PropTypes.func.isRequired,
+  modalContent: PropTypes.object.isRequired,
+  footerContent: PropTypes.object,
+  isOpen: PropTypes.number
 }
