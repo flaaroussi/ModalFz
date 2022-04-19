@@ -79,5 +79,5 @@ Modal.propTypes = {
   onClose: PropTypes.func.isRequired,
   modalContent: PropTypes.object.isRequired,
   footerContent: PropTypes.object,
-  isOpen: PropTypes.number
+  isOpen: PropTypes.number.isRequired
 }
