@@ -2,7 +2,8 @@
 
 ReactModalFz is a modal library, is wrritten in Javascript. It is a minimal library without any other dependencies, while being performant and straightforward to use, requiring developers to write fewer lines of code than other form libraries.
 
-A library of React components created using `create-react-app`.
+A library of React components created using <a href="https://www.npmjs.com/package/create-react-library">create-react-library</a>.
+
 
 # Demo
 
